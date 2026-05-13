@@ -19,7 +19,20 @@ let
   # ];
 in
 {
-  imports = [
-    imports
-  ];
+  imports = imports;
+
+  # Top-level error de opts
+  extraConfigLua = # lua
+    ''
+      vim.cmd [[
+        autocmd BufRead,BufNewFile *.html,*md,*.js,*.ts,*.svelte,*.tsx,*.css,*.php,*.json,*.nix,*.gleam setlocal tabstop=2 shiftwidth=2 softtabstop=2
+        autocmd BufRead,BufNewFile *.php set autoindent
+      ]]
+          
+      vim.cmd [[
+          au BufWinEnter * set formatoptions-=c formatoptions-=r formatoptions-=o
+          au BufRead * set formatoptions-=c formatoptions-=r formatoptions-=o
+          au BufNewFile * set formatoptions-=c formatoptions-=r formatoptions-=o
+      ]]
+    '';
 }

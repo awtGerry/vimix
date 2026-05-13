@@ -39,11 +39,4 @@
     swapfile = false;
     backup = false;
   };
-
-  extraConfigLua = ''
-    vim.cmd [[
-      autocmd BufRead,BufNewFile *.html,*md,*.js,*.ts,*.svelte,*.tsx,*.css,*.php,*.json,*.nix,*.gleam setlocal tabstop=2 shiftwidth=2 softtabstop=2
-      autocmd BufRead,BufNewFile *.php set autoindent
-    ]]
-  '';
 }
